@@ -1,0 +1,10 @@
+{
+  "format_version": 1,
+  "rows": 57650,
+  "features": 5000,
+  "vectorizer_source": "notebook",
+  "data_path": "C:\\Users\\M!KK_J\\Desktop\\AI&SOCIETY PIROOJECT\\GIT\\AI-Society-harmonia-music-recommender\\data\\spotify_millsongdata_with_genres.csv",
+  "data_size_bytes": 75267067,
+  "built_at": "2026-10-20T10:01:54Z",
+  "build_seconds": 12.1
+}
