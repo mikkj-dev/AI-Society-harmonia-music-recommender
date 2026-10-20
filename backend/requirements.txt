@@ -1,0 +1,9 @@
+# Harmonia API — direct dependencies (pin ranges that are known to work together).
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30,<1
+pydantic>=2.6,<3
+pandas>=2.2,<4
+numpy>=1.26,<3
+scikit-learn>=1.4,<2
+scipy>=1.12,<2
+joblib>=1.3,<2

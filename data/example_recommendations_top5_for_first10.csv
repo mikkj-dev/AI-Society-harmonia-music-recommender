@@ -1,0 +1,51 @@
+seed_song_id,seed_title,rank,rec_song_id,rec_title,rec_artist,rec_genre,score
+S00000,Ahe's My Kind Of Girl,1,S23119,What Kind Of Girl,Air Supply,Unknown,0.5391031306006555
+S00000,Ahe's My Kind Of Girl,2,S44380,The Kind Of Girl I Could Love,The Monkees,Unknown,0.49797656085306946
+S00000,Ahe's My Kind Of Girl,3,S52857,Girl (Why You Wanna Make Me Blue),The Temptations,Unknown,0.39878754716265763
+S00000,Ahe's My Kind Of Girl,4,S24736,Girl,The Beatles,Rock,0.3896989387725669
+S00000,Ahe's My Kind Of Girl,5,S09367,Don't Be Kind,John Denver,Unknown,0.3871924875572685
+S00001,"Andante, Andante",1,S48822,Sing A Song,Point Of Grace,Unknown,0.49445256767283596
+S00001,"Andante, Andante",2,S26224,Let It All Be Music,Boney M.,Unknown,0.4737660177257292
+S00001,"Andante, Andante",3,S04271,Applejack,Dolly Parton,Unknown,0.41084190383793395
+S00001,"Andante, Andante",4,S45324,I Am A Song,Neil Sedaka,Unknown,0.40520423419040913
+S00001,"Andante, Andante",5,S26919,Sing,Carpenters,Unknown,0.4006182003527604
+S00002,As Good As New,1,S01819,Ma Baker,Boney M.,Unknown,0.90497539554397
+S00002,As Good As New,2,S54116,Big Girls Are Best,U2,Unknown,0.8955556766046392
+S00002,As Good As New,3,S32935,Big Leg Emma,Frank Zappa,Unknown,0.8620765784675487
+S00002,As Good As New,4,S34945,Move To The City,Guns N' Roses,Unknown,0.8221528652655218
+S00002,As Good As New,5,S04727,Auntie -,Electric Light Orchestra,Unknown,0.8088688883395854
+S00003,Bang,1,S04755,Sea Of Dreams,Electric Light Orchestra,Unknown,0.7982471071471418
+S00003,Bang,2,S46981,Happy Song,Otis Redding,Unknown,0.7850487659690832
+S00003,Bang,3,S11149,Dum Dum,Lana Del Rey,Unknown,0.689032340567077
+S00003,Bang,4,S01418,The Prime Of Your Love,Billy Joel,Unknown,0.6546885192549965
+S00003,Bang,5,S45331,Let's Go Steady Again,Neil Sedaka,Unknown,0.6464044529111745
+S00004,Bang-A-Boomerang,1,S22521,Wannabe,Zeromancer,Unknown,0.6966906199239244
+S00004,Bang-A-Boomerang,2,S16588,Friday's Child,Queen Adreena,Unknown,0.6435257529093713
+S00004,Bang-A-Boomerang,3,S24850,Dumb,Beautiful South,Unknown,0.6291281394264316
+S00004,Bang-A-Boomerang,4,S29640,One Dumb Thing,Devo,Unknown,0.5987846252109786
+S00004,Bang-A-Boomerang,5,S32200,Comfortably Dumb,Extreme,Unknown,0.5718950701479564
+S00005,Burning My Bridges,1,S33699,Burning Bridges,George Jones,Unknown,0.4943401127704083
+S00005,Burning My Bridges,2,S34104,Burning Bridges,Glen Campbell,Unknown,0.4484218710286962
+S00005,Burning My Bridges,3,S37551,Burning Bridges,Jason Mraz,Unknown,0.4096534425356674
+S00005,Burning My Bridges,4,S32678,Bridge Burning,Foo Fighters,Unknown,0.4032231721887666
+S00005,Burning My Bridges,5,S42894,Lords Of The Backstage,Marillion,Unknown,0.37128554963463667
+S00006,Cassandra,1,S18963,Sorry,Stevie Wonder,Unknown,0.41353155502864447
+S00006,Cassandra,2,S44885,Sorry,Natalie Cole,Unknown,0.4115246006447759
+S00006,Cassandra,3,S03441,Don't Tell Me You're Sorry,Conway Twitty,Unknown,0.3880122650013011
+S00006,Cassandra,4,S22100,Sorry,Yo Gotti,Unknown,0.3856132192918588
+S00006,Cassandra,5,S21233,Thought I Knew,Weezer,Unknown,0.38321033769782425
+S00007,Chiquitita,1,S26919,Sing,Carpenters,Unknown,0.4840253806158588
+S00007,Chiquitita,2,S54105,40,U2,Unknown,0.47910755248137493
+S00007,Chiquitita,3,S04425,Sing Along,Donna Summer,Unknown,0.4670752654781566
+S00007,Chiquitita,4,S28761,Sing Along,Dave Matthews Band,Unknown,0.4591677457380127
+S00007,Chiquitita,5,S45324,I Am A Song,Neil Sedaka,Unknown,0.4526227644494563
+S00008,Crazy World,1,S51412,Crazy World,Scorpions,Unknown,0.3599946726691502
+S00008,Crazy World,2,S56549,Crazy,Willie Nelson,Unknown,0.35774843740089596
+S00008,Crazy World,3,S13839,Crazy,Neil Young,Unknown,0.3551410303989268
+S00008,Crazy World,4,S01747,Crazy,Bon Jovi,Unknown,0.3514971815349624
+S00008,Crazy World,5,S47404,Crazy,Patsy Cline,Unknown,0.3512731938564706
+S00009,Crying Over You,1,S05334,Cryin',Eric Clapton,Unknown,0.615336586673743
+S00009,Crying Over You,2,S46644,Cryin' Drunk,Old 97's,Unknown,0.5871504576558975
+S00009,Crying Over You,3,S11265,Cryin' Time Again,Leann Rimes,Unknown,0.5599898633726128
+S00009,Crying Over You,4,S41322,Cryin' Time,Leann Rimes,Unknown,0.558282498951977
+S00009,Crying Over You,5,S02467,I Want You To Want Me,Cheap Trick,Unknown,0.5290654320330591

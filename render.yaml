@@ -1,0 +1,16 @@
+# Render blueprint for the Harmonia API (not deployed — reference only).
+services:
+  - type: web
+    name: harmonia-api
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r backend/requirements.txt && python scripts/prepare_data.py
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: HARMONIA_BUILD_ON_STARTUP
+        value: "true"
+      - key: HARMONIA_CORS_ORIGINS
+        sync: false # set to your frontend URL

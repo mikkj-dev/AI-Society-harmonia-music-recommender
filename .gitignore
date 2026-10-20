@@ -218,3 +218,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+data/spotify_millsongdata_with_genres.csv
+
+# Generated ML artifacts
+artifacts/
+
+# Local environment variables
+.env.*
+!.env.example
+
+# Next.js generated files
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Python virtual environments
+backend/.venv/
+backend/venv/

@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/* Tokens                                                              */
+/* ------------------------------------------------------------------ */
+:root {
+  --bg: #0f1311;
+  --bg-deep: #0a0c0b;
+  --emerald: 52 211 153; /* #34d399 */
+  --violet: 167 139 250; /* #a78bfa */
+  --ink: #e9ede9;
+  --ink-muted: #9aa59e;
+  --glass: rgba(255, 255, 255, 0.055);
+  --glass-strong: rgba(255, 255, 255, 0.09);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-highlight: rgba(255, 255, 255, 0.35);
+  /* pointer position, updated by AmbientBackground */
+  --mx: 50vw;
+  --my: 40vh;
+  color-scheme: dark;
+}
+
+html {
+  min-height: 100%;
+  background: var(--bg);
+}
+
+html,
+body {
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  /* transparent so the fixed ambient scene (z-index: -1) shows through */
+  background: transparent;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(var(--emerald), 0.35);
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--emerald));
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Ambient scene                                                       */
+/* ------------------------------------------------------------------ */
+.scene {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(1200px 800px at 15% -10%, rgba(var(--emerald), 0.16), transparent 60%),
+    radial-gradient(1000px 700px at 90% 110%, rgba(var(--violet), 0.18), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+}
+
+/* pointer-reactive light */
+.scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    520px 520px at var(--mx) var(--my),
+    rgba(255, 255, 255, 0.06),
+    rgba(var(--emerald), 0.05) 35%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transition: opacity 400ms ease;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.55;
+  will-change: transform;
+  animation: drift 26s ease-in-out infinite alternate;
+}
+.orb-a {
+  width: 44vw;
+  height: 44vw;
+  left: -10vw;
+  top: -12vw;
+  background: radial-gradient(circle at 35% 35%, rgba(var(--emerald), 0.55), rgba(var(--emerald), 0) 70%);
+}
+.orb-b {
+  width: 38vw;
+  height: 38vw;
+  right: -8vw;
+  bottom: -10vw;
+  background: radial-gradient(circle at 60% 60%, rgba(var(--violet), 0.6), rgba(var(--violet), 0) 70%);
+  animation-duration: 32s;
+  animation-delay: -9s;
+}
+.orb-c {
+  width: 26vw;
+  height: 26vw;
+  left: 55vw;
+  top: 10vh;
+  background: radial-gradient(circle, rgba(94, 234, 212, 0.35), rgba(94, 234, 212, 0) 70%);
+  animation-duration: 38s;
+  animation-delay: -18s;
+  opacity: 0.35;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6vw, -4vh, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-4vw, 5vh, 0) scale(0.96);
+  }
+}
+
+/* fine grain so flat gradients don't band */
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Liquid glass                                                        */
+/* ------------------------------------------------------------------ */
+.glass {
+  position: relative;
+  background: linear-gradient(160deg, var(--glass-strong), var(--glass) 55%, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 0 0 rgba(0, 0, 0, 0.3),
+    0 30px 70px -30px rgba(0, 0, 0, 0.75);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  backdrop-filter: blur(22px) saturate(140%);
+  transform-style: preserve-3d;
+}
+
+/* curved specular reflection along the top edge */
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    120deg,
+    var(--glass-highlight),
+    rgba(255, 255, 255, 0.05) 30%,
+    rgba(var(--violet), 0.25) 70%,
+    rgba(var(--emerald), 0.35)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* local pointer light: --lx / --ly are set per tile in JS */
+.glass-lit::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    260px circle at var(--lx, 50%) var(--ly, 50%),
+    rgba(255, 255, 255, 0.12),
+    rgba(var(--emerald), 0.07) 40%,
+    transparent 70%
+  );
+  opacity: var(--lit, 0);
+  transition: opacity 300ms ease;
+  pointer-events: none;
+}
+
+.glass-inset {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, rgb(var(--emerald)), #c4b5fd 60%, rgb(var(--violet)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* similarity bar */
+.sim-track {
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+.sim-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgb(var(--emerald)), rgb(var(--violet)));
+  transform-origin: left;
+}
+
+/* range input */
+input[type="range"].topn {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgb(var(--emerald)) 0%,
+    rgb(var(--violet)) var(--pct, 50%),
+    rgba(255, 255, 255, 0.12) var(--pct, 50%)
+  );
+  outline-offset: 6px;
+}
+input[type="range"].topn::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f4f7f4;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.08),
+    0 6px 16px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+input[type="range"].topn::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f4f7f4;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.08),
+    0 6px 16px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+/* loading shimmer */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.07), transparent);
+  animation: shimmer 1.6s infinite;
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.sr-only-focusable:not(:focus):not(:focus-within) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------ */
+/* Reduced motion: stop ambient drift, pointer light and shimmer       */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .orb,
+  .shimmer::after {
+    animation: none !important;
+  }
+  .scene::after,
+  .glass-lit::after {
+    display: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Coarse pointers (touch): no hover-only effects */
+@media (hover: none) {
+  .scene::after,
+  .glass-lit::after {
+    display: none;
+  }
+}
